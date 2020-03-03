@@ -145,9 +145,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Header\DeliverStarState.cpp" />
-    <ClCompile Include="Header\GoHomeState.cpp" />
-    <ClCompile Include="Header\RestState.cpp" />
+    <ClCompile Include="Source\DeliverStarState.cpp" />
+    <ClCompile Include="Source\GoHomeState.cpp" />
+    <ClCompile Include="Source\RestState.cpp" />
     <ClCompile Include="Source\A_star.cpp" />
     <ClCompile Include="Source\AgentFSM.cpp" />
     <ClCompile Include="Source\FindStarState.cpp" />

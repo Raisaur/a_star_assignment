@@ -129,13 +129,13 @@
     <ClCompile Include="Source\FindStarState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Header\DeliverStarState.cpp">
+    <ClCompile Include="Source\DeliverStarState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Header\GoHomeState.cpp">
+    <ClCompile Include="Source\GoHomeState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Header\RestState.cpp">
+    <ClCompile Include="Source\RestState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

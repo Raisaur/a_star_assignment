@@ -7,20 +7,24 @@ constexpr char TRADINGPOST_FILE_PATH[] = "../Assets/tradingpost.png";
 
 struct SpaceStop : Entity
 {
-	SpaceStop(Vector2 position, EntityType type)
+	SpaceStop(EntityType type, Grid* grid)
 	{
-		SetPosition(position);
 		type_ = type;
+		Vector2 position(0, 0);
 
 		if (type_ == EntityType::SPACESHIP)
 		{
+			position = GetSpawnpoint(grid, TileType::SPACESHIP);
 			sprite_ = Service<SpriteHandler>::Get()->CreateSprite(SPACESHIP_FILE_PATH, 0, 0, 64, 64);
 		}
 
 		else if (type_ == EntityType::TRADINGPOST)
 		{
+			position = GetSpawnpoint(grid, TileType::TRADINGPOST);
 			sprite_ = Service<SpriteHandler>::Get()->CreateSprite(TRADINGPOST_FILE_PATH, 0, 0, 64, 64);
 		}
+
+		SetPosition(position);
 	}
 
 	void Render(SDL_Renderer* renderer)

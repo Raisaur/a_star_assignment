@@ -3,12 +3,15 @@
 #include <iostream>
 #include <vector>
 
-Starchaser::Starchaser(Vector2 pos, Star* star, Grid* grid, SpaceStop* spaceship, SpaceStop* tradingpost) :
+Starchaser::Starchaser(Star* star, Grid* grid, SpaceStop* spaceship, SpaceStop* tradingpost) :
 	grid_(grid),
 	star_(star),
 	spaceship_(spaceship),
 	tradingpost_(tradingpost)
 {
+	Vector2 position = GetSpawnpoint(grid_, TileType::STARCHASER);
+	SetPosition(position);
+
 	pathfind_ = new AStarPathfinding(grid_);
 	sprite_ = Service<SpriteHandler>::Get()->CreateSprite(STARCHASER_FILE_PATH, 0, 0,
 		Config::SCREEN_WIDTH / Config::TILE_COUNT_X, Config::SCREEN_HEIGHT / Config::TILE_COUNT_Y); //64, 64);
@@ -58,7 +61,10 @@ bool Starchaser::FollowPath(float deltaTime)
 void Starchaser::MoveTo(Vector2 target, float deltaTime)
 {
 	direction_ = target - center_;
-	direction_.normalize();
+
+	if (direction_.magnitude() != 0)
+		direction_.normalize();
+
 	Vector2 newpos(pos_ + direction_ * MOVE_SPEED * deltaTime);
 	SetPosition(newpos);
 }

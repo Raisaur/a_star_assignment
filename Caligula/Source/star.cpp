@@ -1,8 +1,9 @@
 #include "star.h"
 #include "Grid.h"
 
-Star::Star(Vector2 position, Grid* grid)
+Star::Star(Grid* grid)
 {
+	Vector2 position = GetSpawnpoint(grid, TileType::STAR);
 	SetPosition(position);
 	sprite_ = Service<SpriteHandler>::Get()->CreateSprite(STAR_FILE_PATH, 0, 0, Config::SCREEN_WIDTH / Config::TILE_COUNT_X, Config::SCREEN_HEIGHT / Config::TILE_COUNT_Y); // 64, 64);
 	active_ = true;

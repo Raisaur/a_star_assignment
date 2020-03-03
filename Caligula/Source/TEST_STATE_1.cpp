@@ -20,13 +20,13 @@ void TEST_STATE_1::Enter()
 	grid_ = new Grid(Config::TILE_COUNT_X, Config::TILE_COUNT_Y);
 	pathFind_ = new AStarPathfinding(grid_);
 
-	spaceship_ = new SpaceStop(spaceship_->GetSpawnpoint(grid_, TileType::SPACESHIP), EntityType::SPACESHIP);
+	spaceship_ = new SpaceStop(EntityType::SPACESHIP, grid_);
 
-	tradingpost_ = new SpaceStop(tradingpost_->GetSpawnpoint(grid_, TileType::TRADINGPOST), EntityType::TRADINGPOST);
+	tradingpost_ = new SpaceStop(EntityType::TRADINGPOST, grid_);
 
-	star_ = new Star(star_->GetSpawnpoint(grid_, TileType::STAR), grid_);
+	star_ = new Star(grid_);
 
-	starchaser_ = new Starchaser(starchaser_->GetSpawnpoint(grid_, TileType::STARCHASER), star_, grid_, spaceship_, tradingpost_);
+	starchaser_ = new Starchaser(star_, grid_, spaceship_, tradingpost_);
 
 	timeLastFrame_ = SDL_GetTicks();
 	timeNextSense_ = SDL_GetTicks();

@@ -26,7 +26,7 @@ struct Starchaser : Entity
 		REST
 	};
 
-	Starchaser(Vector2 pos, Star* star, Grid* grid, SpaceStop* spaceship, SpaceStop* tradingpost);
+	Starchaser(Star* star, Grid* grid, SpaceStop* spaceship, SpaceStop* tradingpost);
 	void Render(SDL_Renderer* renderer);
 	void Update(float deltaTime);
 

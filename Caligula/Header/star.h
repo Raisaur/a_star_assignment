@@ -8,7 +8,7 @@ constexpr char STAR_FILE_PATH[] = "../Assets/star.png";
 class Grid;
 
 struct Star : Entity{
-	Star(Vector2 position, Grid* grid_);
+	Star(Grid* grid_);
 	void Render(SDL_Renderer* renderer);
 	void SetActive(bool active);
 	void Respawn();
